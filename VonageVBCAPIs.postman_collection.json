@@ -1,0 +1,1345 @@
+{
+	"info": {
+		"_postman_id": "6652d3d3-9c38-4314-b35a-393712b49075",
+		"name": "Vonage VBC APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Call Recording",
+			"item": [
+				{
+					"name": "/company_call_recordings",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/company_call_recordings?start:gte={{cr_start_gte}}&start:lte={{cr_start_lte}}&page_size=20&page=1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"call_recording",
+								"api",
+								"accounts",
+								":account_id",
+								"company_call_recordings"
+							],
+							"query": [
+								{
+									"key": "start:gte",
+									"value": "{{cr_start_gte}}",
+									"description": "Format: YYYY-MM-DDTHH:MM:SSZ"
+								},
+								{
+									"key": "start:lte",
+									"value": "{{cr_start_lte}}",
+									"description": "Format: YYYY-MM-DDTHH:MM:SSZ"
+								},
+								{
+									"key": "page_size",
+									"value": "20"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "call_direction",
+									"value": "",
+									"description": "INBOUND, OUTBOUND or INTRA_PBX",
+									"disabled": true
+								},
+								{
+									"key": "call_id",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "caller_id",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "cnam",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "dnis",
+									"value": null,
+									"description": "cc + phone number",
+									"disabled": true
+								},
+								{
+									"key": "duration:gte",
+									"value": "90000",
+									"disabled": true
+								},
+								{
+									"key": "duration:lte",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "extension",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": null,
+									"description": "start:DESC",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/company_call_recordings/{recording_id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/company_call_recordings/:recording_id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"call_recording",
+								"api",
+								"accounts",
+								":account_id",
+								"company_call_recordings",
+								":recording_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "recording_id",
+									"value": "",
+									"description": "id example: 1234567890"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/company_call_recordings/{recording_id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/company_call_recordings/:recording_id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"call_recording",
+								"api",
+								"accounts",
+								":account_id",
+								"company_call_recordings",
+								":recording_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "recording_id",
+									"value": "",
+									"description": "id example: 1234567890"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/company_call_recordings/export",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"start:gte\": \"{{cr_start_gte}}\",\n    \"start:lte\": \"{{cr_start_lte}}\",\n    \"page_size\": \"20\",\n    \"page\": \"1\",\n    \"call_direction\": \"\",\n    \"call_id\": \"\",\n    \"caller_id\": \"\",\n    \"cnam\": \"\",\n    \"dnis\": \"\",\n    \"duration:gte\": \"\",\n    \"duration:lte\": \"\",\n    \"extension\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/company_call_recordings/export",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"call_recording",
+								"api",
+								"accounts",
+								":account_id",
+								"company_call_recordings",
+								"export"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/on_demand_recording/{user_id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/users/:user_id/call_recordings?start:gte={{cr_start_gte}}&start:lte={{cr_start_lte}}&page_size=20&page=1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"call_recording",
+								"api",
+								"accounts",
+								":account_id",
+								"users",
+								":user_id",
+								"call_recordings"
+							],
+							"query": [
+								{
+									"key": "start:gte",
+									"value": "{{cr_start_gte}}",
+									"description": "Format: YYYY-MM-DDTHH:MM:SSZ"
+								},
+								{
+									"key": "start:lte",
+									"value": "{{cr_start_lte}}",
+									"description": "Format: YYYY-MM-DDTHH:MM:SSZ"
+								},
+								{
+									"key": "page_size",
+									"value": "20"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "call_direction",
+									"value": "",
+									"description": "INBOUND, OUTBOUND or INTRA_PBX",
+									"disabled": true
+								},
+								{
+									"key": "call_id",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "caller_id",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "cnam",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "dnis",
+									"value": null,
+									"description": "cc + phone number",
+									"disabled": true
+								},
+								{
+									"key": "duration:gte",
+									"value": "90000",
+									"disabled": true
+								},
+								{
+									"key": "duration:lte",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "extension",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": null,
+									"description": "start:DESC",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "user_id",
+									"value": "self",
+									"description": "The VBC user ID. You can use 'self' to refer to the authenticated user."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/on_demand_recording/{user}/{recording_id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/users/:user_id/call_recordings/:recording_id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"call_recording",
+								"api",
+								"accounts",
+								":account_id",
+								"users",
+								":user_id",
+								"call_recordings",
+								":recording_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "user_id",
+									"value": "self",
+									"description": "The VBC user ID. You can use 'self' to refer to the authenticated user."
+								},
+								{
+									"key": "recording_id",
+									"value": "",
+									"description": "The Recording ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/on_demand_recording/{user}/{recording_id} Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/users/:user_id/call_recordings/:recording_id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"call_recording",
+								"api",
+								"accounts",
+								":account_id",
+								"users",
+								":user_id",
+								"call_recordings",
+								":recording_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "user_id",
+									"value": "self",
+									"description": "The VBC user ID. You can use 'self' to refer to the authenticated user."
+								},
+								{
+									"key": "recording_id",
+									"value": "",
+									"description": "The Recording ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/on_demand_recording/{user}/{recording_id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/users/:user_id/call_recordings/:recording_id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"call_recording",
+								"api",
+								"accounts",
+								":account_id",
+								"users",
+								":user_id",
+								"call_recordings",
+								":recording_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "user_id",
+									"value": "self",
+									"description": "The VBC user ID. You can use 'self' to refer to the authenticated user."
+								},
+								{
+									"key": "recording_id",
+									"value": "",
+									"description": "The Recording ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/on_demand_recording/{user_id}/export",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"start:gte\": \"{{cr_start_gte}}\",\n    \"start:lte\": \"{{cr_start_lte}}\",\n    \"page_size\": \"20\",\n    \"page\": \"1\",\n    \"call_direction\": \"\",\n    \"call_id\": \"\",\n    \"caller_id\": \"\",\n    \"cnam\": \"\",\n    \"dnis\": \"\",\n    \"duration:gte\": \"\",\n    \"duration:lte\": \"\",\n    \"extension\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/users/:user_id/call_recordings/export",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"call_recording",
+								"api",
+								"accounts",
+								":account_id",
+								"users",
+								":user_id",
+								"call_recordings",
+								"export"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "user_id",
+									"value": "self"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/jobs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/users/:user_id/call_recordings/jobs?status=\"\"",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"call_recording",
+								"api",
+								"accounts",
+								":account_id",
+								"users",
+								":user_id",
+								"call_recordings",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "\"\""
+								}
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "user_id",
+									"value": "self"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/jobs/{job_id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/users/:user_id/call_recordings/jobs/:job_id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"call_recording",
+								"api",
+								"accounts",
+								":account_id",
+								"users",
+								":user_id",
+								"call_recordings",
+								"jobs",
+								":job_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "user_id",
+									"value": "self"
+								},
+								{
+									"key": "job_id",
+									"value": "",
+									"description": "The job ID"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "GetToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5d29858c-cd8e-4ee3-a457-8ab97b1486cd",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "{{grant_type}}",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "{{scope}}",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "{{vbc_user_username}}@{{api_env}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{vbc_user_password}}",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.vonage.com/token",
+							"protocol": "https",
+							"host": [
+								"api",
+								"vonage",
+								"com"
+							],
+							"path": [
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Provisioning",
+			"item": [
+				{
+					"name": "/{account_id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/provisioning/api/accounts/:account_id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"provisioning",
+								"api",
+								"accounts",
+								":account_id"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "{{account_id}}",
+									"description": "The VBC account ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/locations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/provisioning/api/accounts/:account_id/locations",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"provisioning",
+								"api",
+								"accounts",
+								":account_id",
+								"locations"
+							],
+							"variable": [
+								{
+									"description": "The VBC account ID",
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/locations/{location_id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/provisioning/api/accounts/:account_id/locations/:location_id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"provisioning",
+								"api",
+								"accounts",
+								":account_id",
+								"locations",
+								":location_id"
+							],
+							"variable": [
+								{
+									"description": "The VBC account ID",
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"description": "The VBC location ID (from id: in /locations)",
+									"key": "location_id",
+									"value": "371338"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/extensions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/provisioning/api/accounts/:account_id/extensions",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"provisioning",
+								"api",
+								"accounts",
+								":account_id",
+								"extensions"
+							],
+							"query": [
+								{
+									"key": "page_size",
+									"value": "20",
+									"description": "Number of records per page",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "",
+									"description": "Current page number",
+									"disabled": true
+								},
+								{
+									"key": "location_id",
+									"value": null,
+									"description": "Filter by location id",
+									"disabled": true
+								},
+								{
+									"key": "phone_number",
+									"value": null,
+									"description": "Filter by phone number",
+									"disabled": true
+								},
+								{
+									"key": "login_name",
+									"value": null,
+									"description": "Filter by login name",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": null,
+									"description": "Filter by email address",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"description": "The VBC account ID",
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/extensions/{extension_number}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/provisioning/api/accounts/:account_id/extensions/:extension_number",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"provisioning",
+								"api",
+								"accounts",
+								":account_id",
+								"extensions",
+								":extension_number"
+							],
+							"variable": [
+								{
+									"description": "The VBC account ID",
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "extension_number",
+									"value": "",
+									"description": "The extension number"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/provisioning/api/accounts/:account_id/users",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"provisioning",
+								"api",
+								"accounts",
+								":account_id",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page_size",
+									"value": "20",
+									"description": "Number of records per page",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "",
+									"description": "Current page number",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": null,
+									"description": "Filter by first name",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": null,
+									"description": "Filter by last name",
+									"disabled": true
+								},
+								{
+									"key": "login_name",
+									"value": null,
+									"description": "Filter by login name",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": null,
+									"description": "Filter by email address",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"description": "The VBC account ID",
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{user_id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/provisioning/api/accounts/:account_id/users/:user_id",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"provisioning",
+								"api",
+								"accounts",
+								":account_id",
+								"users",
+								":user_id"
+							],
+							"variable": [
+								{
+									"description": "The VBC account ID",
+									"key": "account_id",
+									"value": "{{account_id}}"
+								},
+								{
+									"key": "user_id",
+									"value": "",
+									"description": "The VBC user ID (ID from /users)"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "/call-logs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/{{api_env}}/reports/accounts/:account_id/call-logs?start:gte={{reports_start_gte}}&start:lte={{reports_start_lte}}&page_size=20&page=1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"{{api_env}}",
+								"reports",
+								"accounts",
+								":account_id",
+								"call-logs"
+							],
+							"query": [
+								{
+									"key": "start:gte",
+									"value": "{{reports_start_gte}}",
+									"description": "[required]  YYYY-MM-DD HH:mm:ss"
+								},
+								{
+									"key": "start:lte",
+									"value": "{{reports_start_lte}}",
+									"description": "[required] YYYY-MM-DD HH:mm:ss"
+								},
+								{
+									"key": "page_size",
+									"value": "20",
+									"description": "[required]"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "[required]"
+								},
+								{
+									"key": "end:gte",
+									"value": null,
+									"description": "format: YYYY-MM-DD HH:mm:ss",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": null,
+									"description": "Filter by called number",
+									"disabled": true
+								},
+								{
+									"key": "from",
+									"value": null,
+									"description": "filter by calling number",
+									"disabled": true
+								},
+								{
+									"key": "source_user",
+									"value": null,
+									"description": "filter by vbc user originating call",
+									"disabled": true
+								},
+								{
+									"key": "destination_user",
+									"value": null,
+									"description": "filter by vbc user receiving call",
+									"disabled": true
+								},
+								{
+									"key": "direction",
+									"value": null,
+									"description": "Either Inbound or Outbound",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"description": "The VBC account ID",
+									"key": "account_id",
+									"value": "{{account_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
