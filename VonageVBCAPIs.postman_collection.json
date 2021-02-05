@@ -10,6 +10,18 @@
 			"item": [
 				{
 					"name": "/company_call_recordings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"recording_id\", jsonData._embedded.recordings[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -178,7 +190,7 @@
 								},
 								{
 									"key": "recording_id",
-									"value": "",
+									"value": "{{recording_id}}",
 									"description": "id example: 1234567890"
 								}
 							]
@@ -689,7 +701,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/users/:user_id/call_recordings/jobs?status=\"\"",
+							"raw": "{{api_url}}/{{api_env}}/call_recording/api/accounts/:account_id/users/:user_id/call_recordings/jobs",
 							"host": [
 								"{{api_url}}"
 							],
@@ -707,7 +719,8 @@
 							"query": [
 								{
 									"key": "status",
-									"value": "\"\""
+									"value": "\"\"",
+									"disabled": true
 								}
 							],
 							"variable": [
@@ -782,8 +795,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Authentication",
@@ -794,7 +806,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5d29858c-cd8e-4ee3-a457-8ab97b1486cd",
 								"exec": [
 									"var jsonData = pm.response.json();",
 									"pm.environment.set(\"token\", jsonData.access_token);"
@@ -863,8 +874,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Provisioning",
@@ -909,6 +919,18 @@
 				},
 				{
 					"name": "/locations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"location_id\", jsonData._embedded.locations[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -984,7 +1006,7 @@
 								{
 									"description": "The VBC location ID (from id: in /locations)",
 									"key": "location_id",
-									"value": "371338"
+									"value": "{{location_id}}"
 								}
 							]
 						}
@@ -993,6 +1015,18 @@
 				},
 				{
 					"name": "/extensions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"extension_number\", jsonData._embedded.extensions[0].user.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1070,6 +1104,17 @@
 				},
 				{
 					"name": "/extensions/{extension_number}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1105,7 +1150,7 @@
 								},
 								{
 									"key": "extension_number",
-									"value": "",
+									"value": "{{extension_number}}",
 									"description": "The extension number"
 								}
 							]
@@ -1115,6 +1160,18 @@
 				},
 				{
 					"name": "/users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"user_id\", jsonData._embedded.users[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1227,7 +1284,7 @@
 								},
 								{
 									"key": "user_id",
-									"value": "",
+									"value": "{{user_id}}",
 									"description": "The VBC user ID (ID from /users)"
 								}
 							]
@@ -1235,8 +1292,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Reports",
@@ -1337,9 +1393,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
